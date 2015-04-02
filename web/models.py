@@ -9,7 +9,7 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class SubCategory(models.Model):
@@ -20,7 +20,7 @@ class SubCategory(models.Model):
     class Meta:
         verbose_name_plural = "sub categories"
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class Product(models.Model):
@@ -35,5 +35,5 @@ class Product(models.Model):
     def on_sale(self):
         return self.discount>0
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
