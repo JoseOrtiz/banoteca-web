@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Productos | Bañoteca
+{% endblock %}
+{% block content %}
+{% block products %}<li class="current">{% endblock %}
+
+        <!-- Banner -->
+            <section id="banner">
+                <header>
+                    <h2>Bañoteca</h2>
+                </header>
+            </section>
+
+        <!-- Gigantic Heading -->
+            <section class="wrapper style2">
+                <div class="container">
+                    <header class="major">
+                        <h2>Estas son las categorías de productos disponibles</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Highlights -->
+            <section class="wrapper style1">
+                <div class="container">
+                    {% for category in categories %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="row 200%">{% endif %}
+                        <section class="4u 12u(narrower)">
+                            <div class="box highlight">
+                                <i class="icon major">{#<img src="{{STATIC_URL}}images/pic01.jpg">#}</i>
+                                <h3>{{category.name}}</h3>
+                                <p>{{category.description}}</p>
+                                {% for subcategory in category.subcategory_set.all|slice:":4"%}
+                                <p>{{subcategory.name}}</p>
+                                {% endfor %}
+                            </div>
+                        </section>
+                    {% if forloop.counter|divisibleby:3 %}
+                    </div>{% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+
+{% endblock %}

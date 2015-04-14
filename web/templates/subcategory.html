@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{subcategory.name}} | Bañoteca
+{% endblock %}
+{% block content %}
+{% block products %}<li class="current">{% endblock %}
+
+        <!-- Banner -->
+            <section id="banner">
+                <header>
+                    <h2>Bañoteca</h2>
+                </header>
+            </section>
+
+        <!-- Highlights -->
+            <section class="wrapper style1">
+                <div class="container">
+                    <div class="row 200%">
+                        <div class="2u 12u(narrower)">
+                            <div id="sidebar">
+                                <!-- Sidebar -->
+                                    <section>
+                                        <h3>{{subcategory.name}}</h3>
+                                        <p>{{subcategory.description}}.</p>
+                                    </section>
+                            </div>
+                        </div>
+                        <div class="9u  12u(narrower) important(narrower)">
+                            <div id="content">
+                                <!-- Content -->
+                                    <article>
+                                        {% for product in subcategory.product_set.all %}
+                                        {% if forloop.counter|divisibleby:3 %}<div class="row">{% endif %}
+                                            <section class="4u 12u(narrower)">
+                                                <div class="box post">
+                                                    <a href="#" class="image left"><img src="{{product.image_set.first.picture.url}}" alt="" /></a>
+                                                    <div class="inner">
+                                                        <h3>{{product.name}}</h3>
+                                                        <h4>Precio <em>{{product.price}}</em></h4>
+                                                        <p>{{product.description}}</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        {% if forloop.counter|divisibleby:3 %}</div>{% endif %}
+                                        {% endfor %}
+                                    </article>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock %}

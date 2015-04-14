@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{category.name}} | Bañoteca
+{% endblock %}
+{% block content %}
+{% block products %}<li class="current">{% endblock %}
+
+        <!-- Banner -->
+            <section id="banner">
+                <header>
+                    <h2>Bañoteca</h2>
+                </header>
+            </section>
+
+        <!-- Highlights -->
+            <section class="wrapper style1">
+                <div class="container">
+                    <div class="row 200%">
+                        <div class="3u 12u(narrower)">
+                            <div id="sidebar">
+                                <!-- Sidebar -->
+                                    <section>
+                                        <h3>{{category.name}}</h3>
+                                        <p>{{category.description}}.</p>
+                                    </section>
+                            </div>
+                        </div>
+                        <div class="9u  12u(narrower) important(narrower)">
+                            <div id="content">
+                                <!-- Content -->
+                                    <article>
+                                        {% for subcategory in category.subcategory_set.all %}
+                                        {% if forloop.counter|divisibleby:2 %}<div class="row">{% endif %}
+                                            <section class="6u 12u(narrower)">
+                                                <div class="box post">
+                                                    <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
+                                                    <div class="inner">
+                                                        <h3>{{subcategory.name}}</h3>
+                                                        <p>{{subcategory.description}}</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        {% if forloop.counter|divisibleby:2 %}</div>{% endif %}
+                                        {% endfor %}
+                                    </article>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock %}

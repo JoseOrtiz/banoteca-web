@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 # Create your models here.
 
@@ -38,15 +39,14 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
 class Image(models.Model):
+    def get_pictures_path(instance,filename):
+        return os.path.join('pictures', str(instance.pk), filename)
     product = models.ForeignKey(Product)
-    picture = models.ImageField(upload_to='get_pictures_path', blank=False, null=False)
+    picture = models.ImageField(upload_to=get_pictures_path, blank=False, null=False)
     date = models.DateTimeField(auto_now_add=True, null=True)
     def __str__(self):
         return "Foto de " + self.product.name
-    def get_pictures_path(instance,filename):
-        return os.path.join('pictures', str(instance.pk), filename)
     def save(self, *args, **kwargs):
         if self.pk is None:
             saved_image = self.picture
