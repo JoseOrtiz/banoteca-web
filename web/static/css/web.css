@@ -1,0 +1,105 @@
+.icon.major img{
+	width: 100%;
+}
+.category-link{
+	border-bottom: 0px none;
+	display: inline-block;
+}
+.category-link:hover{
+	border-bottom: none;
+	display: inline-block;
+}
+#slides{
+	height: 400px;
+}
+.slideme {
+	max-width: 990px;
+	max-height: 450px;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	background: rgba(55,55,55,.5);
+	border-radius: 25px;
+}
+.slideme img{
+	margin: auto;
+	height: 100%;
+	max-height: 450px;
+	object-fit:contain;
+}
+#slides .arrow{
+	display: block;
+	position: absolute;
+	top:50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    background: url(../images/a02.png) no-repeat;
+    overflow: hidden;
+    z-index: 1;
+}
+#slides button{
+	border: none;
+}
+#slides .arrow.prev{
+	left: 0;
+	background-position: -3px -33px; 
+}
+#slides .arrow.prev:hover{
+	background-position: -123px -33px;
+}
+#slides .arrow.prev:active{
+	background-position: -3px -33px;
+}
+#slides .arrow.prev:disabled{
+	background-position: -243px -33px;
+}
+
+#slides .arrow.next{
+	right: 0;
+	background-position: -63px -33px;
+}
+#slides .arrow.next:hover{
+	background-position: -183px -33px;
+}
+#slides .arrow.next:active{
+	background-position: -63px -33px;
+}
+#slides .arrow.next:disabled{
+	background-position: -303px -33px;
+}
+
+#slides .pagination{
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#slides .pagination ol{
+	display: inline-block;
+}
+
+#slides .pagination ol li{
+	float: left;
+}
+
+#slides .pagination ol li, #slides .pagination ol li:hover, #slides .pagination ol li.current {
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    line-height: 21px;
+    color: white;
+    font-size: 12px;
+    background: url(../images/b03.png) no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+}
+#slides .pagination ol li { background-position: -5px -4px; }
+#slides .pagination ol li:hover, #slides .pagination ol li.current:hover { background-position: -35px -4px; }
+#slides .pagination ol li.current { background-position: -65px -4px; }
+#slides .pagination ol li:active { background-position: -95px -4px; }

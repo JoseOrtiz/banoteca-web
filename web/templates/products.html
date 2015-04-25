@@ -30,8 +30,8 @@ Productos | Bañoteca
                     <div class="row 200%">{% endif %}
                         <section class="4u 12u(narrower)">
                             <div class="box highlight">
-                                <i class="icon major">{#<img src="{{STATIC_URL}}images/pic01.jpg">#}</i>
-                                <h3>{{category.name}}</h3>
+                                <a href="{% url 'category' category.id %}" class="category-link"><i class="icon major"><img src="{{MEDIA_URL}}{{category.icon}}"></i></a>
+                                <h3><a href="{% url 'category' category.id %}">{{category.name}}</a></h3>
                                 <p>{{category.description}}</p>
                                 {% for subcategory in category.subcategory_set.all|slice:":4"%}
                                 <p>{{subcategory.name}}</p>

@@ -34,9 +34,9 @@
                                         {% if forloop.counter|divisibleby:2 %}<div class="row">{% endif %}
                                             <section class="6u 12u(narrower)">
                                                 <div class="box post">
-                                                    <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
+                                                    <a href="{% url 'subcategory' category.id subcategory.id %}" class="image left"><img src="images/pic01.jpg" alt="" /></a>
                                                     <div class="inner">
-                                                        <h3>{{subcategory.name}}</h3>
+                                                        <h3><a href="{% url 'subcategory' category.id subcategory.id %}">{{subcategory.name}}</a></h3>
                                                         <p>{{subcategory.description}}</p>
                                                     </div>
                                                 </div>

@@ -6,6 +6,7 @@ import os
 class Category(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    icon = models.ImageField(upload_to='icons',blank=True,null=True)
 
     class Meta:
         verbose_name_plural = "categories"

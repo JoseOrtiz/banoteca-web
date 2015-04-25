@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load l10n %}
+{% load staticfiles%}
+
+{% block title %}
+{{product.name}} | Bañoteca
+{% endblock %}
+{% block content %}
+{% block products %}<li class="current">{% endblock %}
+
+        <!-- Banner -->
+            <section id="banner">
+                <header>
+                    <h2>Bañoteca</h2>
+                </header>
+            </section>
+
+        <!-- Highlights -->
+            <section class="wrapper style1">
+                <div class="container">
+                    <div class="row 200%">
+                        <div class="3u 12u(narrower)">
+                            <div id="sidebar">
+                                <!-- Sidebar -->
+                                    <section>
+                                        <h3>{{product.name}}</h3>
+                                        <p>Precio: ${{product.price|localize}}</p>
+                                        <p>{{product.description}}.</p>
+                                    </section>
+                            </div>
+                        </div>
+                        <div class="9u 12u(narrower) important(narrower)">
+                            <div id="content">
+                                <!-- Content -->
+                                    <article>
+                                        <div class="row">
+                                            <section class="12u 12u(narrower)">
+                                                <span class="image featured">
+                                                    <div id="slides">
+                                                        <ul class="slideme">
+                                                        {% for image in product.image_set.all %}
+                                                            <li><img src="{{image.picture.url}}" alt="" /></li>
+                                                        {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </section>
+                                        </div>
+                                    </article>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script type="text/javascript">
+                $('#slides').slideme({
+                    arrows: true,
+                    pagination: "numbers",
+                    touch: true,
+                    swipe:true,
+                    labels : {
+                        next: '',
+                        prev: ''
+                    }
+                });
+            </script>
+
+{% endblock %}

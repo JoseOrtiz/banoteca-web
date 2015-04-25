@@ -31,18 +31,18 @@
                                 <!-- Content -->
                                     <article>
                                         {% for product in subcategory.product_set.all %}
-                                        {% if forloop.counter|divisibleby:3 %}<div class="row">{% endif %}
-                                            <section class="4u 12u(narrower)">
+                                        {% if forloop.counter|divisibleby:2 %}<div class="row">{% endif %}
+                                            <section class="6u 12u(narrower)">
                                                 <div class="box post">
-                                                    <a href="#" class="image left"><img src="{{product.image_set.first.picture.url}}" alt="" /></a>
+                                                    <a href="{% url 'product' product.id %}" class="image left"><img src="{{product.image_set.first.picture.url}}" alt="" /></a>
                                                     <div class="inner">
-                                                        <h3>{{product.name}}</h3>
+                                                        <h3><a href="{% url 'product' product.id %}">{{product.name}}</a></h3>
                                                         <h4>Precio <em>{{product.price}}</em></h4>
                                                         <p>{{product.description}}</p>
                                                     </div>
                                                 </div>
                                             </section>
-                                        {% if forloop.counter|divisibleby:3 %}</div>{% endif %}
+                                        {% if forloop.counter|divisibleby:2 %}</div>{% endif %}
                                         {% endfor %}
                                     </article>
 
